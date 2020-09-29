@@ -1,20 +1,30 @@
+/**
+ * Classe   Entier
+ * classe fille de la classe Entier
+ * @version 1.0
+ *
+ * @author Johanna Fericean
+ */
+
 import java.util.Random;
 
 public class EntierFou extends Entier {
-private int niveauDeFolie;
-private Random r = new Random();
-
+        /**  ATTRIBUTS **/
+    private int niveauDeFolie;
+    private Random r = new Random();
+    
+    /**      CONSTRUCTEURS            **/
     public EntierFou(int borne_inf,int borne_sup, int valeur, int niveauDeFolie){
-        super();
-
-        this.borne_inf = borne_inf;
-        this.borne_sup = borne_sup;
-        this.valeur = valeur;
+        super(borne_inf,borne_sup,valeur);
         this.niveauDeFolie = niveauDeFolie;
     }
-
+    
+    /**       METHODES                 **/
     @Override
     public void incremente() {
-        incremente(r.nextInt(niveauDeFolie));
+        //** la fonction incremente l'entier entre 0 et niveau de folie
+        *//
+        int tirage =r.nextInt(niveauDeFolie)
+        incremente(tirage);
     }
 }
