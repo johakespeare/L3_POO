@@ -1,8 +1,17 @@
+/**
+ * Classe Entier
+ * @version 1.0
+ *
+ * @author Johanna Fericean
+ */
+
 public  class Entier {
+    //** ATTRIBUTS **/
     protected int borne_inf;
     protected int borne_sup;
     protected int valeur;
 
+    //** CONSTRUCTEURS **/
     public Entier(int borne_inf,int borne_sup,int valeur){
         /**
          * constructeur avec comme paramètres borne_inf,borne_sup et valeur
@@ -41,6 +50,8 @@ public  class Entier {
         this.valeur=0;
 
     }
+    
+    //**  METHODES **//
 
     public int getBorne_inf() {
         /**
@@ -66,6 +77,7 @@ public  class Entier {
     public void setValeur(int nb){
         /**
          * modifie la valeur d'Entier par nb si il est compris entre la borne inférieure et la borne supérieure
+         * @param nb = la nouvelle valeur de l'Entier
          **/
         if((nb>=borne_inf)&&(nb<=borne_sup)){
         this.valeur = nb;}
@@ -83,6 +95,7 @@ public  class Entier {
     public void incremente(int n){
         /**
          * incrémente la valeur de n si elle ne dépasse pas la borne sup ou la borne inf ( int peut être négatif)
+         *@param n = l'incrementation
          */
         if((this.valeur + n <= borne_sup)&&(this.valeur + n >= borne_inf)){
             this.valeur= this.valeur+n;
