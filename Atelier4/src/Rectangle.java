@@ -1,7 +1,9 @@
 public class Rectangle extends Forme_BiDimension{
+    //* ATTRIBUTS */
     private double largeur;
     private double longueur;
 
+    //*CONSTRUCTEURS*/
     public Rectangle(String nom, double largeur, double longueur) {
         /**
          * constructeur de la classe Rectangle
@@ -14,6 +16,7 @@ public class Rectangle extends Forme_BiDimension{
         this.longueur=longueur;
     }
 
+    //* METHODES */
     @Override
     public double perimetre() {
         /**
