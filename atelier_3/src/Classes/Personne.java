@@ -2,6 +2,7 @@ package Classes;
 import java.util.*;
 
 public class Personne{
+	/** ATTRIBUTS */
     private static final Adresse ADRESSE_INCONNUE = null;
     private String nom;
     private String prenom;
@@ -15,6 +16,7 @@ public class Personne{
 	 * @param laDate la date de naissance de la personne
 	 * @param lAdresse l'adresse de la personne
 	 */
+	
 	public Personne(String leNom,String lePrenom, GregorianCalendar laDate, Adresse lAdresse){
 		nom = leNom.toUpperCase();
 		prenom=lePrenom;
