@@ -9,8 +9,12 @@ import java.util.GregorianCalendar;
  */
 
 public class Manager extends Employe {
+    /** ATTRIBUTS */
+    
     private Secretaire secretaire;
 
+    
+    /** CONSTRUCTEURS */
     public Manager(String leNom, String lePrenom, GregorianCalendar laDate, Adresse lAdresse, double salaire, int date_embauche, Secretaire secretaire) {
         /** constructeur de la classe Manager
          * @param leNom le nom du Manager
@@ -23,6 +27,8 @@ public class Manager extends Employe {
         super(leNom, lePrenom, laDate, lAdresse, salaire);
         this.secretaire=secretaire;
     }
+    
+    //* METHODES */
 
     public void augmenterLeSalaire(int pourcentage){
         /**la fonction augmente le salaire du manager
