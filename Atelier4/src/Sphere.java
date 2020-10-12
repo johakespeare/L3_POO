@@ -1,5 +1,7 @@
 public class Sphere extends Forme_TriDimension{
+    //* ATTRIBUTS */
     private double rayon;
+    //*CONSTRUCTEURS */
     public Sphere(String nom,double rayon) {
         /**
          * constructeur Sphere
@@ -10,6 +12,7 @@ public class Sphere extends Forme_TriDimension{
         this.rayon=rayon;
     }
 
+    //* METHODES */
     @Override
     public double volume() {
         /**
