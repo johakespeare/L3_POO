@@ -12,9 +12,11 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Employe extends Personne {
+    /** ATTRIBUTS    */
     protected double salaire;
     protected int date_embauche;
-
+    
+    /** CONSTRUCTEURS    */
     public Employe(String leNom, String lePrenom, GregorianCalendar laDate, Adresse lAdresse, double salaire) {
         super(leNom, lePrenom, laDate, lAdresse);
         this.salaire = salaire;
@@ -22,6 +24,8 @@ public class Employe extends Personne {
         this.date_embauche = c. get(Calendar. YEAR);
         System.out.println(date_embauche);
     }
+    
+    /** METHODES */
 
     public void createEmploye(String leNom, String lePrenom, GregorianCalendar laDate, Adresse lAdresse, double salaire){
         /**
