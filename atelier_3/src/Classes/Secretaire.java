@@ -11,8 +11,9 @@ import java.util.GregorianCalendar;
 
 
 public class Secretaire extends Employe {
+    /** ATTRIBUTS */
     ArrayList<Manager> list_managers = new ArrayList<Manager>();
-
+    /** CONSTRUCTEURS*/
     public Secretaire(String leNom, String lePrenom, GregorianCalendar laDate, Adresse lAdresse, double salaire, int date_embauche) {
         /** constructeur de la classe Manager
          * @param leNom le nom de la secrétaire
