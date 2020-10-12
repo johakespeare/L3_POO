@@ -1,6 +1,7 @@
 import java.lang.Math;
 
 public class Ellipse extends Forme_BiDimension{
+    //* ATTRIBUTS */
 private double petit_axe;
 private double grand_axe;
 
@@ -15,7 +16,7 @@ private double grand_axe;
         this.grand_axe=grand_axe;
         this.petit_axe=petit_axe;
     }
-
+//* METHODES */
     @Override
     public double perimetre(){
         /**
