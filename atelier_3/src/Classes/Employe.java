@@ -1,75 +1,87 @@
-package Classes;
-
 /**
  * Classe Employe
- * @author Johanna Fericean
+ * @author  johanna Fericean
  *
  */
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+package Classes;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Employe extends Personne {
-    /** ATTRIBUTS    */
     protected double salaire;
-    protected int date_embauche;
-    
-    /** CONSTRUCTEURS    */
-    public Employe(String leNom, String lePrenom, GregorianCalendar laDate, Adresse lAdresse, double salaire) {
+    protected GregorianCalendar date_embauche;
+
+    protected Employe(String leNom, String lePrenom, GregorianCalendar laDate, Adresse lAdresse, double salaire, GregorianCalendar date_embauche) {
         super(leNom, lePrenom, laDate, lAdresse);
         this.salaire = salaire;
-        Calendar c = Calendar. getInstance();
-        this.date_embauche = c. get(Calendar. YEAR);
-        System.out.println(date_embauche);
+        this.date_embauche = date_embauche;
     }
-    
-    /** METHODES */
 
-    public void createEmploye(String leNom, String lePrenom, GregorianCalendar laDate, Adresse lAdresse, double salaire){
-        /**
-         * * @param salaire= salaire de l'employé
-         * * @param date_embauche = date d'embauche de l'employé
-         * * @param age = age de l'employé
-         */
-        Calendar c = Calendar. getInstance();
-        int year = c. get(Calendar. YEAR);
-        int age = year - laDate.get(Calendar.YEAR);
-        System.out.println(age);
-        if((age>16)&&(age<65)){
-            Employe e = new Employe(leNom, lePrenom, laDate, lAdresse, salaire);
-            System.out.println("un nouvel employé");
+    /**
+     * fonction qui créée un employé
+     * @param leNom le nom de l'employé
+     * @param lePrenom le prénom de l'émployé
+     * @param laDate la date de naissance de l'employé
+     * @param lAdresse l'adresse de l'employé
+     * @param salaire le salaire de l'employé
+     */
+    public static Employe createEmploye(String leNom,String lePrenom, GregorianCalendar laDate, Adresse lAdresse,double salaire,GregorianCalendar date_embauche){
+        int AGE_MINIMUM = 16;
+        int AGE_MAXIMUM = 65;
+
+
+        int age =  date_embauche.get(Calendar.YEAR)-laDate.get(Calendar.YEAR);
+
+
+        if((age>AGE_MINIMUM)&&(age<AGE_MAXIMUM)&&(salaire>0)){
+            Employe e = new Employe(leNom, lePrenom, laDate, lAdresse, salaire,date_embauche);
+            return e;
         }
-        else System.out.println("l'age pas valide");
+        else{ System.err.println("l'age n'est pas valide il a "+ age +" ans" );
+        return null;}
     }
 
+
+    /**
+     * Accesseur
+     * @return
+     */
     public double getSalaire() {
         return salaire;
     }
 
+    /**
+     * fonction qui augmente le salaire
+     * @param pourcentage augmentation du salaire
+     */
     public void augmenterLeSalaire(double pourcentage){
-        /**
-         * @param pourcentage = pourcentage d'augmentation du salaire
-         */
-        if(pourcentage>=0){
+
+        if(pourcentage>0){
             this.salaire = this.salaire + this.salaire*pourcentage;
-            System.out.println("salaire augmenté");
         }
         else{
-            System.out.println("le pourcentage n'est pasp positif");
+            System.err.println("le pourcentage n'est pasp positif");
         }
     }
 
+    /**
+     * fonction qui calcule le nombre d'années que l'employé a passé dans l'entreprise
+     * @return nbannées
+     */
     public int calculAnnuite(){
-        /**
-         * retourne le nombre d'années que l'employé a passé dans l'entreprise
-         */
+        //GregorianCalendar today = new GregorianCalendar()
         Calendar c = Calendar. getInstance();
         int year = c. get(Calendar. YEAR);
-        return(-this.date_embauche + year);
+        int yearEmbauche = this.date_embauche.get(Calendar.YEAR);
+        return( year-yearEmbauche+1);
     }
 
+    @Override
+    public String toString() {
+        return "Employe{" +
+                "salaire=" + salaire +
+                ", date_embauche=" + date_embauche +
+                '}';
+    }
 
 }
-

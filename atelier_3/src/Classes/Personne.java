@@ -1,14 +1,19 @@
+/**
+ * Classe Personne
+ * @author  johanna Fericean
+ *
+ */
 package Classes;
 import java.util.*;
 
 public class Personne{
-	/** ATTRIBUTS */
     private static final Adresse ADRESSE_INCONNUE = null;
     private String nom;
     private String prenom;
     private final GregorianCalendar dateNaissance;
     private Adresse adresse=ADRESSE_INCONNUE;
-    private static int nb_personnes=0;
+    private static int compteurPersonne =0;
+	
 	/**
 	 * Constructeur de Personne
 	 * @param leNom le nom de la personne
@@ -16,13 +21,12 @@ public class Personne{
 	 * @param laDate la date de naissance de la personne
 	 * @param lAdresse l'adresse de la personne
 	 */
-	
 	public Personne(String leNom,String lePrenom, GregorianCalendar laDate, Adresse lAdresse){
 		nom = leNom.toUpperCase();
 		prenom=lePrenom;
 		dateNaissance=laDate;
 		adresse=lAdresse;
-		nb_personnes++;
+		compteurPersonne++;
 	}
 	
 	/** 
@@ -67,14 +71,12 @@ public class Personne{
 	 * @return retourne l'adresse	 
 	 */
 	public Adresse getAdresse() {
-		/**
-		 * Modificateur
-		 * @param retourne l'adresse
-		 */
-
 		return adresse;
 	}
-
+	/**
+	 * Modificateur
+	 * @param retourne l'adresse	 
+	 */
 	public void setAdresse(Adresse a) {
 		adresse=a;
 	}
@@ -92,44 +94,65 @@ public class Personne{
 		adresse.toString();
 		return result;
 	}
-
-	public int getNb_personnes(){
-		/**
-		 * @return : le nombre d'objets personne créés
-		 */
-		return(nb_personnes);
+	/**
+	 * Accesseur
+	 * @return compteurPersonne
+	 */
+	public static int getCompteurPersonne() {
+		return compteurPersonne;
 	}
 
-	public boolean plusAge(Personne personne_1,Personne personne_2){
-		/**
-		 * @param personne1 = un objet personne
-		 * @param personne2 = un objet personne
-		 * @return booleen = true si la personne1 est plus agée que la personne2 en paramètres
-		 */
-		return(personne_1.getDateNaissance().compareTo(personne_2.getDateNaissance())>0);
-
+	/**
+	 * retourne vrai si la personne1 est plus Agee que la personne2 sinon retourne faux
+	 * @param personne1
+	 * @param personne2
+	 * @return boolean
+	 */
+	public static boolean plusAge(Personne personne1,Personne personne2){
+		Boolean result;
+		if(personne1.getDateNaissance().before(personne2.getDateNaissance())){
+			result = true;
+		}
+		else {
+			result=false;
+		}
+		return result;
 	}
-	public boolean plusAgeQue( Personne personne) {
-		/**
-		 * @param personne = un objet personne
-		 * @return booleen = true si la personne est plus agée que la personne en paramètres
-		 */
-		return(this.getDateNaissance().compareTo(personne.getDateNaissance())>0) ;
+
+
+
+	/**
+	 * retourne vraie si l'objet personne est plusAgee que la personne 2 sinon retourne false
+	 * @param personne2
+	 * @return boolean
+	 */
+	public boolean plusAgeeQue(Personne personne2){
+		return(plusAge(this,personne2));
 	}
 
-	public boolean equals(Object obj1){
-		boolean idem= false;
-		if(obj1 instanceof Personne){
-			Personne autre = (Personne) obj1;
-			if((autre.getNom().equals(this.getNom()))&&(this.getDateNaissance()==autre.getDateNaissance())
-					&&(this.getPrenom().equals(autre.getPrenom()))){
-				idem=true;
-		       }
+
+	/**
+	 * retourne true si l'objet est identique à l'objet personne ( hormis l'adresse) sinon false
+	 * @param objet
+	 * @return boolean
+	 */
+	public boolean equals(Object objet) {
+		Boolean result;
+		if (this == objet){
+			result = true;
 		}
 
-		return idem;
-
+		Personne personne = (Personne) objet;
+		 if( Objects.equals(nom, personne.getNom()) && Objects.equals(prenom, personne.prenom) &&
+				Objects.equals(dateNaissance, personne.dateNaissance)){
+			result=true;
+		}
+		else{
+			result=false;
+		}
+		return result;
 	}
+
 
 }
 

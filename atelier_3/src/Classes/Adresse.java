@@ -2,13 +2,12 @@
  * University of Corsica
  * by Marie-Laure Nivet
  */
-
+package Classes;
 /**
  * Classe Adrese servant à modéliser les informations contenues dans une adresse
  * @author nivet_m
  *
  */
-package Classes;
 public class Adresse {
 	public static final int AUCUN_NUMERO=-1;
 	public static final int INUTILE_NUMERO=-2;
@@ -62,12 +61,12 @@ public class Adresse {
 	/**
 	 * @return retourne le code postal.
 	 */
-	public String getCode_postal()/**
-	 * @param code_postal le code postal pour assignation.
-	 */ {
+	public String getCode_postal() {
 		return code_postal;
 	}
-
+	/**
+	 * @param code_postal le code postal pour assignation.
+	 */
 	public final void  setCode_postal(String c_p){
 		if (code_postal.equals(INCONNU_CHAINE)&&(c_p.matches("[0-9]{5}")))
 			code_postal=c_p;
@@ -85,12 +84,11 @@ public class Adresse {
 	 * @return retourne le numéro de la rue.
 	 */
 	public int getNumero() {
-		/**
-		 * @param numero le numéro pour attribution, il doit être positif
-		 */
 		return numero;
 	}
-
+	/**
+	 * @param numero le numéro pour attribution, il doit être positif
+	 */
 	public final void  setNumero(int n) {
 		if (((numero==AUCUN_NUMERO)||(numero==INUTILE_NUMERO))&&(n>0)) numero = n;
 		else System.err.println("Numero incorrect, il doit être positif...");
@@ -99,13 +97,11 @@ public class Adresse {
 	 * @return retourne la rue.
 	 */
 	public String getRue() {
-		/**
-		 * @param rue la rue pour attribution.
-		 */
-
 		return rue;
 	}
-
+	/**
+	 * @param rue la rue pour attribution.
+	 */
 	public void setRue(String r) {
 		rue = r;
 	}

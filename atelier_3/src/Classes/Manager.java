@@ -1,55 +1,84 @@
-package Classes;
-import java.util.GregorianCalendar;
-
-
 /**
  * Classe Manager
- * @author Johanna Fericean
+ * @author  johanna Fericean
  *
  */
+package Classes;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
-public class Manager extends Employe {
-    /** ATTRIBUTS */
-    
-    private Secretaire secretaire;
+public class Manager extends Employe{
+protected Secretaire secretaire;
 
-    
-    /** CONSTRUCTEURS */
-    public Manager(String leNom, String lePrenom, GregorianCalendar laDate, Adresse lAdresse, double salaire, int date_embauche, Secretaire secretaire) {
-        /** constructeur de la classe Manager
-         * @param leNom le nom du Manager
-         * @param lePrenom le pr�nom du Manager
-         * @param laDate la date de naissance du Manager
-         * @param lAdresse l'adresse du Manager
-         * @param salaire le salaire du Manager
-         * @param date_embauche la date où l'employé a été embauché
-         */
-        super(leNom, lePrenom, laDate, lAdresse, salaire);
+
+    private Manager(String leNom, String lePrenom, GregorianCalendar laDate, Adresse lAdresse, double salaire,GregorianCalendar date_embauche ,Secretaire secretaire) {
+        super(leNom,lePrenom,laDate,lAdresse,salaire,date_embauche);
         this.secretaire=secretaire;
     }
-    
-    //* METHODES */
 
+    /**
+     * la fonction créée un manager en vérifiant son age
+     * @param leNom
+     * @param lePrenom
+     * @param laDate
+     * @param lAdresse
+     * @param salaire
+     * @param date_embauche
+     */
+    public static Manager createManager(String leNom, String lePrenom, GregorianCalendar laDate, Adresse lAdresse, double salaire, GregorianCalendar date_embauche,Secretaire secretaire){
+        int AGE_MINIMUM = 16;
+        int AGE_MAXIMUM = 65;
+
+        int age =  date_embauche.get(Calendar.YEAR)-laDate.get(Calendar.YEAR);
+
+        if((age>AGE_MINIMUM)&&(age<AGE_MAXIMUM)&&(salaire>0)){
+            Manager e = new Manager(leNom, lePrenom, laDate, lAdresse, salaire,date_embauche,secretaire);
+            return e;
+        }
+        else{ System.err.println("l'age n'est pas valide");
+        return null;}
+
+    }
+
+    /**
+     * la fonction augmente le salaire
+     * @param pourcentage
+     */
     public void augmenterLeSalaire(int pourcentage){
-        /**la fonction augmente le salaire du manager
-         * @param pourcentange = taux d'augmentation du salaire
-         */
+        double AUGMENTATION =0.5;
         if(pourcentage>=0){
-            this.salaire = this.salaire*pourcentage + 0.5*(this.salaire);
-            System.out.println("le salaire a été augmenté");
+            this.salaire = this.salaire*pourcentage + AUGMENTATION *(this.salaire); //mettre 0.5 en constante
+
         }
-       else{
-           System.out.println("le pourcentage n'est pas positif!");
+        else{
+            System.err.println("le pourcentage n'est pas positif!");
         }
-    }
-    public void setSecretaire(Secretaire secretaire){
-        /** la fonction modifie la secrétaire du Manager
-         * @param secretaire = la nouvelle secrétaire
-         */
-        this.secretaire= secretaire;
     }
 
+    /**
+     * SETTER
+     * @param secretaire la nouvelle secretaire
+     */
+    public void setSecretaire(Secretaire secretaire){
+
+        if(this.secretaire==null){
+            this.secretaire= secretaire;
+        }
+        else{
+            System.err.println("le manager "+ this.getNom() + " a déja une secrétaire");
+        }
+
+    }
+
+    /**
+     * accesseur
+     * @return secretaire
+     */
     public Secretaire getSecretaire() {
         return secretaire;
     }
+
+
+
+
 }
