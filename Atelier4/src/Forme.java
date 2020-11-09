@@ -1,6 +1,6 @@
 public abstract class Forme {
     //* ATTRIBUTS */
-    protected String nom;
+    public final String nom;
     protected static int _n=0;
 
     //* CONSTRUCTEUR */
