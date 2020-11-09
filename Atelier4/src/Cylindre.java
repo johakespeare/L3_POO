@@ -4,12 +4,14 @@ public class Cylindre extends Forme_TriDimension {
     private double hauteur;
 
     //* CONSTRUCTEURS */
-    public Cylindre(String nom,double rayon,double hauteur) {
-        /**
+   
+    
+     /**
          * @param nom, le nom du Cylindre
          * @param rayon, le rayon du Cylindre
          *@param hauteur, la hauteur du Cylindre
          */
+    public Cylindre(String nom,double rayon,double hauteur) {
         super(nom);
         this.rayon = rayon;
         this.hauteur = hauteur;
@@ -17,20 +19,21 @@ public class Cylindre extends Forme_TriDimension {
     }
 
     @Override
-    public double volume() {
-        /**
+      
+    /**
          * @eturn le volume du cylindre
          */
+    public double volume() { 
         return Math.pow(this.rayon,2)*Math.PI*this.hauteur;
     }
 
 
 
     @Override
-    public double surface() {
-        /**
+     /**
          * @eturn la surface du cylindre
          */
+    public double surface() {
         return 2*Math.PI*this.rayon*(this.rayon+this.hauteur);
     }
 
