@@ -1,8 +1,10 @@
 public abstract class Forme_TriDimension extends Forme {
     //* CONSTRUCTEURS */
-    public Forme_TriDimension(String nom) {
-         //*@param nom , le nom de la forme
+    //*@param nom , le nom de la forme
         */
+    
+    public Forme_TriDimension(String nom) {
+         
         super(nom);
     }
 
