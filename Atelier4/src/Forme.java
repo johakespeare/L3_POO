@@ -4,23 +4,24 @@ public abstract class Forme {
     protected static int _n=0;
 
     //* CONSTRUCTEUR */
-    public Forme(String nom){
-        /**
+     
+    /**
          * constructeur de Forme
          *@param nom, le nom de la Forme
          */
+    public Forme(String nom){ 
         this.nom=nom;
         _n++;
     }
 
     //* METHODES */
-    public abstract double surface();
-
-    public boolean estPlusGrande(Forme forme){
-        /**fonction qui retourne True si la première forme est plus grande que
+   
+    
+    /**fonction qui retourne True si la première forme est plus grande que
           la forme passée en paramètres.
          * @param forme = une forme
          */
+    public boolean estPlusGrande(Forme forme){
         if(this.surface()>forme.surface()){
             return(true);
         }
@@ -28,7 +29,9 @@ public abstract class Forme {
             return(false);
         }
     }
-
+    
+    
+    public abstract double surface();
     public abstract String toString();
     public abstract boolean equals(Object objet);
 }
