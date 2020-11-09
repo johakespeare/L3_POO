@@ -2,11 +2,12 @@ public class Cercle extends Forme_BiDimension{
     //*   ATTRIBUTS  */
     private double rayon;
     //* CONSTRUCTEURS */
-    public Cercle(String nom,double rayon) {
-        //**
+    //**
 	 * @param nom, le nom du cercle
 	 * @param rayon, le rayon du cercle
 	 */
+	
+	public Cercle(String nom,double rayon) { 
         super(nom);
         this.rayon=rayon;
     }
@@ -14,18 +15,19 @@ public class Cercle extends Forme_BiDimension{
     //* METHODES */
 
     @Override
-    public double perimetre() {
-        /**
+	/**
          *@return le périmètre du cercle 2*pi*rayon
          */
+    public double perimetre() {
         return 2*Math.PI*this.rayon;
     }
 
     @Override
-    public double surface() {
-        /**
+    
+	/**
          * @return l'aire du cercle
          */
+	public double surface() {
         return Math.PI* Math.pow(this.rayon,2);
     }
 
