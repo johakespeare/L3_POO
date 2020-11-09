@@ -4,32 +4,38 @@ public class Rectangle extends Forme_BiDimension{
     private double longueur;
 
     //*CONSTRUCTEURS*/
-    public Rectangle(String nom, double largeur, double longueur) {
-        /**
+     /**
          * constructeur de la classe Rectangle
          * @param nom = le nom du Rectangle
          * @param largeur = la largeur du Rectangle
          * @param longueur= la longueur du Rectangle
          */
+    
+    public Rectangle(String nom, double largeur, double longueur) {
+       
         super(nom);
         this.largeur=largeur;
         this.longueur=longueur;
     }
 
     //* METHODES */
-    @Override
-    public double perimetre() {
-        /**
+   
+    /**
          * retourne le périmètre du rectangle
          */
+    @Override
+    public double perimetre() {
+        
         return (2*largeur+2*longueur);
     }
 
-    @Override
-    public double surface() {
-        /**
+    
+     /**
          * retourne l'aire du rectangle
          */
+    @Override
+    public double surface() {
+       
         return (largeur*longueur);
     }
 
