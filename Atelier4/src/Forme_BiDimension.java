@@ -1,9 +1,10 @@
 public abstract class Forme_BiDimension extends Forme{
  
     //*CONSTRUCTEURS*/
-    public Forme_BiDimension(String nom) {
-        //*@param nom , le nom de la forme
+   //*@param nom , le nom de la forme
         */
+ public Forme_BiDimension(String nom) {
+        
         super(nom);
     }
     //*METHODES*/
