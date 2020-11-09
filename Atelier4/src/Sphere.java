@@ -2,31 +2,36 @@ public class Sphere extends Forme_TriDimension{
     //* ATTRIBUTS */
     private double rayon;
     //*CONSTRUCTEURS */
-    public Sphere(String nom,double rayon) {
-        /**
+    
+    
+    /**
          * constructeur Sphere
          * @param nom = nom de la Sphere
          * @param rayon = rayon de la Sphere
          */
+    public Sphere(String nom,double rayon) {
+        
         super(nom);
         this.rayon=rayon;
     }
 
     //* METHODES */
     @Override
-    public double volume() {
-        /**
+    
+    /**
          * retourne le volume de la Sphere 4/3 * Pi* r^3
          */
+    public double volume() {
         return (4/3)*Math.PI*Math.pow(this.rayon,3);
     }
 
     @Override
-    public double surface() {
-        /**
+   
+    /**
          * retourne la surface de la Sphere
          */
-        return 4*Math.PI*this.rayon;
+    public double surface() {
+         return 4*Math.PI*this.rayon;
     }
 
     @Override
