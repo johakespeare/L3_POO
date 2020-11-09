@@ -5,31 +5,35 @@ public class Ellipse extends Forme_BiDimension{
 private double petit_axe;
 private double grand_axe;
 
-    public Ellipse(String nom,double petit_axe, double grand_axe) {
-        /**
+    /**
          * constructeur de la classe Ellipse
          * @param nom = le nom de l'Ellipse
          * @param petit_axe = le petit axe de l'Ellipse
          * @param grand_axe = le grand axe de l'Ellipse
          */
+    public Ellipse(String nom,double petit_axe, double grand_axe) {
+        
         super(nom);
         this.grand_axe=grand_axe;
         this.petit_axe=petit_axe;
     }
 //* METHODES */
+    
+    
     @Override
-    public double perimetre(){
-        /**
+    /**
          * calcule le périmètre de l'ellipse qui est égale à 2pi*sqrt((petit_axe²+grand_axe²)/2)
          */
+    public double perimetre(){
         return(Math.PI *2 * Math.sqrt((Math.pow(petit_axe,2) +Math.pow(grand_axe,2))/2));
     }
 
-    @Override
-    public double surface(){
-        /**
+    /**
          * calcule la surface de l'ellipse qui est égale à pi*petit_axe*grand_axe
          */
+    @Override
+    public double surface(){
+        
         return(Math.PI * this.petit_axe * this.grand_axe);
     }
 
