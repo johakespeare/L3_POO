@@ -10,6 +10,7 @@ public abstract class Forme_BiDimension extends Forme{
     //*METHODES*/
     public abstract double perimetre();
 
+ //* to String et equals ( tri aussi)
 
 }
 
