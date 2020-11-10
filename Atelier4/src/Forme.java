@@ -1,7 +1,7 @@
 public abstract class Forme {
     //* ATTRIBUTS */
     public final String nom;
-    protected static int _n=0;
+    private static int _n=0;
 
     //* CONSTRUCTEUR */
      
@@ -9,6 +9,8 @@ public abstract class Forme {
          * constructeur de Forme
          *@param nom, le nom de la Forme
          */
+    
+   
     public Forme(String nom){ 
         this.nom=nom;
         _n++;
@@ -32,7 +34,10 @@ public abstract class Forme {
     
     
     public abstract double surface();
-    public abstract String toString();
+    
+    
+    /** les mettre en public et pas en abstract **/
+    public  abstract String toString();
     public abstract boolean equals(Object objet);
 }
 
