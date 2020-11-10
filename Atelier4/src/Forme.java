@@ -30,6 +30,7 @@ public abstract class Forme {
         else {
             return(false);
         }
+        // return(this.surface()>forme.surface();
     }
     
     
